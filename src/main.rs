@@ -1,5 +1,5 @@
 
-use sysinfo::{, Disks, System,};
+use sysinfo::{ Disks, System,};
 //writes the info into output
 fn main() {
     check_sys_specs();

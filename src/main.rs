@@ -1,4 +1,3 @@
-
 use sysinfo::{ Disks, System,};
 //writes the info into output
 fn main() {
@@ -9,10 +8,10 @@ fn check_sys_specs() {
     let mut sys = System::new_all();
     sys.refresh_all();
     //OS info 
-    let sys_name = System::name();
-    let sys_kernel = System::kernel_version();
-    let os_version = System::os_version();
-    let host_name = System::host_name();
+    let sys_name = System::name().unwrap_or_else(||"Unknown".to_string());
+    let sys_kernel = System::kernel_version().unwrap_or_else(||"Unknown".to_string());
+    let os_version = System::os_version().unwrap_or_else(||"Unknown".to_string());
+    let host_name = System::host_name().unwrap_or_else(||"Unknown".to_string());
     //Memory info
     let total_ram = sys.total_memory()/1048576;
     let used_ram = sys.used_memory() /1048576;
